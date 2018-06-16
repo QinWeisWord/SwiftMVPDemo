@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainTableViewController: UITableViewController {
+class MainTableViewController: BaseTableViewController {
 
     var presenter = MainPresenter()
     
@@ -17,7 +17,7 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        presenter.delegate = self
+        presenter.attachView = self
         presenter.getPeople()
     }
     // MARK: - Table view data source
@@ -37,7 +37,9 @@ class MainTableViewController: UITableViewController {
     
 }
 
+// MARK: - 实现Presenter的代理方法，根据数据刷新UI
 extension MainTableViewController : MainPresenterDelegate {
+    
     func startLoad() {
         print("start loading...")
     }
@@ -47,6 +49,7 @@ extension MainTableViewController : MainPresenterDelegate {
     }
     
     func setPeople(people: [Person]) {
+        print("tableview  \(people)")
         self.people = people
         tableView.reloadData()
     }

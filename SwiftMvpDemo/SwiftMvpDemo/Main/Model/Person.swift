@@ -13,7 +13,7 @@ public enum Gender : String{
     case female = "female"
 }
 
-public class Person: NSObject {
+public class Person: BaseModel {
     var name : String = ""
     var age : Int = 0
     var gender : Gender = .male
@@ -46,7 +46,7 @@ public class Person: NSObject {
         let people = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
         
         // 模拟网络延迟
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
 //            result([Person]())
             result(people)
 //            result(nil)
