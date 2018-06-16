@@ -12,7 +12,7 @@ class MainTableViewController: BaseTableViewController {
 
     var presenter = MainPresenter()
     
-    var people = [Person]()
+    var people = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ extension MainTableViewController : MainPresenterDelegate {
         print("end loading...")
     }
     
-    func setPeople(people: [Person]) {
+    func setPeople(people: [User]) {
         print("tableview  \(people)")
         self.people = people
         tableView.reloadData()

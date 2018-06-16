@@ -30,7 +30,7 @@ public class Person: BaseModel {
         return "person's name : \(name), person's age : \(age), person's gender : \(gender)"
     }
     
-    // 获取数据
+    // 获取数据（可以专门封装一个service层来处理网络数据的获得，Demo中放在model层中统一处理）
     class func getPeople(result : @escaping ([Person]?) -> (Void)) {
         // 假设数据
         let p1 = Person(name: "a", age: 10, gender: .male)
